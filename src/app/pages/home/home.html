@@ -1,0 +1,43 @@
+<div>
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Leave Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of adminleavelist">
+        <td>{{ i.leaveId }}</td>
+        <td>{{ i.empName }}</td>
+        <td>{{ i.leaveType }}</td>
+        <td>{{ i.startDate }}</td>
+        <td>{{ i.endDate }}</td>
+        <td>{{ i.reason }}</td>
+        <td>{{ i.status }}</td>
+        <td>
+          <button
+            *ngIf="i.status === 'Pending'"
+            class="btn btn-sm btn-success me-2"
+            (click)="updateStatus(i.leaveId, 'Approved')"
+          >
+            Approve
+          </button>
+          <button
+            class="btn btn-sm btn-danger"
+            *ngIf="i.status === 'Pending'"
+            (click)="updateStatus(i.leaveId, 'Rejected')"
+          >
+            Reject
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

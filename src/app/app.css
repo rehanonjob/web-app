@@ -1,0 +1,34 @@
+mat-toolbar {
+  background-color: teal !important;
+}
+#drawer {
+  /* background-color: blueviolet; */
+}
+
+mat-drawer-container mat-drawer {
+  background-color: blueviolet;
+  width: 260px !important;
+}
+
+mat-drawer-content main {
+  background-color: rgb(246, 243, 243);
+  min-height: 100vh;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 15px;
+}
+
+.sidebar-links a {
+  text-decoration: none !important;
+  padding: 12px;
+  font-size: 18px;
+  color: blue;
+}
+
+
+.cursor-pointer { cursor: pointer; }

@@ -1,0 +1,30 @@
+<div>
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th>EmpId</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Scan-In</th>
+        <th>Scan-Off</th>
+        <th>Status</th>
+        <th>CreatedAt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <tbody>
+          <tr *ngFor="let i of AtaData">
+            <td>{{ i.empId }}</td>
+            <td>{{ i.empName }}</td>
+            <td>{{ i.date | date : 'yyyy-MM-dd' }}</td>
+            <td>{{ i.scanInTime | date : 'shortTime' }}</td>
+            <td>{{ i.scanOffTime ? (i.scanOffTime | date : 'shortTime') : '-' }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.createdAt | date : 'yyyy-MM-dd HH:mm' }}</td>
+          </tr>
+        </tbody>
+      </tr>
+    </tbody>
+  </table>
+</div>
