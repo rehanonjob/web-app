@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Auth } from '../../services/auth';
 
 @Component({
   selector: 'app-departments',
@@ -21,7 +22,7 @@ export class Departments implements OnInit {
   isUpdatebtn: boolean = false;
   upId: number = 0;
 
-  constructor(private httpser: Httpp, private tot: ToastrService) {}
+  constructor(private httpser: Httpp, private tot: ToastrService, public auth: Auth) {}
 
   ngOnInit(): void {
     this.getLatestData();

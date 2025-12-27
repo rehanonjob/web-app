@@ -12,6 +12,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { debounce, debounceTime } from 'rxjs';
+import { Auth } from '../../services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -27,7 +29,12 @@ import { debounce, debounceTime } from 'rxjs';
   styleUrl: './employee.css',
 })
 export class Employee implements OnInit {
-  constructor(private httpser: Httpp, private tot: ToastrService) {}
+  constructor(
+    private httpser: Httpp,
+    private tot: ToastrService,
+    public authSer: Auth,
+    private route: Router
+  ) {}
 
   empList: IEmployee[] = [];
   showCols = ['id', 'name', 'email', 'phone', 'Action'];
@@ -41,6 +48,11 @@ export class Employee implements OnInit {
         this.latestEmpData();
       },
     });
+
+    if (!this.authSer.isAdmin) {
+      alert('Access Denied! You are not authorized to view this page.');
+      this.route.navigateByUrl('employee-dashboard');
+    }
   }
 
   latestEmpData() {

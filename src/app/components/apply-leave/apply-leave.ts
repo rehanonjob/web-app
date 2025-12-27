@@ -32,18 +32,13 @@ import { Router } from '@angular/router';
   templateUrl: './apply-leave.html',
   styleUrl: './apply-leave.css',
 })
-export class ApplyLeave implements OnInit {
+export class ApplyLeave{
   private fb = inject(FormBuilder);
   private toastr = inject(ToastrService);
   private leaveService = inject(Leave);
   private routee = inject(Router);
 
-  ngOnInit(): void {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      this.routee.navigate(['/login']);
-    }
-  }
+  
 
   leaveTypes = ['Planned Leave', 'Emergency Leave'];
 

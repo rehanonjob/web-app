@@ -29,7 +29,7 @@ export class App {
 
   openDialog() {
     var ref = this.dialog.open(Profile, {
-      width: '40%',
+      // width: '40%',
       panelClass: 'm-auto',
     });
   }

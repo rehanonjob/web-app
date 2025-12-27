@@ -15,6 +15,7 @@ import { IDepartment } from '../../../types/department';
 import { IEmployee } from '../../../types/employee';
 import { ToastrService } from 'ngx-toastr';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
   selector: 'app-employee-dialog',
@@ -31,6 +32,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
     MatRadioModule,
     MatIconModule,
     NgFor,
+    MatDivider
   ],
   templateUrl: './employee-dialog.html',
   styleUrl: './employee-dialog.css',

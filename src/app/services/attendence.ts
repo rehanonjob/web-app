@@ -2,10 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { IAttendenceList } from '../types/IattendenceList';
+import { ITodayAttendanceStatus } from '../types/AttendanceStatus';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class Attendence {
   http = inject(HttpClient);
 
@@ -19,5 +21,9 @@ export class Attendence {
 
   GETALL() {
     return this.http.get<IAttendenceList[]>(environment.apiUrl + '/Attendence/get-all-list');
+  }
+
+  GETATTENDTODY() {
+    return this.http.get<ITodayAttendanceStatus>(environment.apiUrl + '/Attendence/today-status');
   }
 }

@@ -29,7 +29,13 @@ export class Auth {
 
   get isEmployee() {
     var token = JSON.parse(localStorage.getItem('auth')!);
-    if (token.role == 'Employee') return true;
+    if (token?.role?.toLowerCase() == 'employee') return true;
+    else return false;
+  }
+
+  get isAdmin() {
+    var token = JSON.parse(localStorage.getItem('auth')!);
+    if (token?.role?.toLowerCase() == 'admin') return true;
     else return false;
   }
 
