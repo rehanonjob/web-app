@@ -70,6 +70,7 @@ export class Employee implements OnInit {
     // console.log(emp);
     var dialogstate = this.dialog.open(EmployeeDialog, {
       width: '25%',
+      height:'90%',
       panelClass: 'm-auto',
       data: emp,
     });

@@ -1,3 +1,5 @@
+// import { DecimalPipe } from "@angular/common";
+
 export interface IEmployee {
   id: number;
   name: string;
@@ -9,6 +11,7 @@ export interface IEmployee {
   joiningDate: string;
   lastWorkingDate: string | null;
   dateOfBirth: string;
+  basicSalary: number;
 }
 
 export enum Gender{

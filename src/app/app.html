@@ -1,4 +1,4 @@
-<header>
+<header class="hader">
   
 
   <mat-toolbar>
@@ -6,7 +6,7 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <span>Employee Management System</span>
+    <span class="toolbar-title">Employee Management System</span>
 
     <!-- THIS pushes everything to the right -->
     <span class="flex-grow-1"></span>
@@ -22,7 +22,7 @@
     }
   </mat-toolbar>
 </header>
-<mat-drawer-container class="">
+<mat-drawer-container class="drawer-custom ">
   @if(this.authservice.isLoggedIn){
   <mat-drawer #drawer [mode]="'side'" [opened]="false">
     <div class="sidebar-links">
@@ -34,6 +34,9 @@
       <a href="/departments">Departments</a>
       <a href="/employees">Employees</a>
       <a href="/attendence-list">Attendance</a>
+      <button mat-button (click)="logout()" class="sidebar-link-btn">
+        Logout <mat-icon>logout</mat-icon>
+      </button>
     </div>
   </mat-drawer>
   }

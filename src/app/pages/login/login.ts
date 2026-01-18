@@ -14,6 +14,7 @@ import { MatAnchor } from '@angular/material/button';
 import { IAuthToken } from '../../types/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Route, Router } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ import { Route, Router } from '@angular/router';
     MatCardTitle,
     MatCardContent,
     MatAnchor,
+    MatProgressSpinnerModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.css',
@@ -41,6 +43,7 @@ export class Login implements OnInit {
     private router: Router
   ) {}
   loginForm!: FormGroup;
+  isLoading: boolean = false;
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -54,6 +57,7 @@ export class Login implements OnInit {
   }
 
   onLogin() {
+    this.isLoading = true;
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
       next: (resp) => {
         console.log(resp);
@@ -68,6 +72,7 @@ export class Login implements OnInit {
       error: (et) => {
         console.log(et);
         this.tot.error('Login Failed');
+        this.isLoading=false;
       },
     });
   }

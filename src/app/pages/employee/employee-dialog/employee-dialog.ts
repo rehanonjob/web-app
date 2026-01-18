@@ -59,6 +59,7 @@ export class EmployeeDialog implements OnInit {
     joiningDate: [null, [Validators.required]],
     lastWorkingDate: [null],
     dateOfBirth: [null, [Validators.required]],
+    basicSalary:[null]
   });
 
   ngOnInit(): void {
@@ -94,7 +95,7 @@ export class EmployeeDialog implements OnInit {
     } else {
       var value: any = this.employeeForm.value;
       if (!value.lastWorkingDate) {
-        value.lastWorkingDate = null; // ✅ force null
+        value.lastWorkingDate = null; 
       }
       this.httpservice.ADDEMPLOYEE(value).subscribe({
         next: (res) => {

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -14,6 +15,7 @@ export class Table {
 @Input () displayedColumns:any[] =[];
 @Output() onEdit = new EventEmitter<any>();
 @Output() onDelete = new EventEmitter<any>();
+router = inject(Router);
 
 editEmployee(element:any){
 this.onEdit.emit(element);
@@ -21,6 +23,10 @@ this.onEdit.emit(element);
 
 deleteEmployee(element:any){
 this.onDelete.emit(element);
+}
+
+generatePaySlip(empId:number){
+  this.router.navigate(['/payslip',empId]);
 }
 
 }
